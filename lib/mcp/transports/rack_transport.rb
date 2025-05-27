@@ -480,6 +480,9 @@ module FastMcp
         # Register client
         register_sse_client(client_id, stream)
 
+        # Start keep-alive thread for this stream
+        start_keep_alive_thread(client_id, stream)
+
         # The controller will handle the streaming
         [200, SSE_HEADERS, []]
       end
